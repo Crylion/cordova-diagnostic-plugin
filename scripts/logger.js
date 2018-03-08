@@ -23,12 +23,12 @@ var logger = (function(){
             path = require('path');
 
             try{
-                require(path.resolve(modulesPath, "colors"));
+                require("colors");
             }catch(e){
                 hasColors = false;
             }
 
-            minimist = require(path.resolve(modulesPath, "minimist"));
+            minimist = require("minimist");
             cliArgs = minimist(process.argv.slice(2));
         },
         dump: function (obj){

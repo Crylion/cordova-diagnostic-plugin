@@ -8,6 +8,8 @@ const PLUGIN_NAME = "Diagnostic plugin";
 const PLUGIN_ID = "cordova.plugins.diagnostic";
 const PREFERENCE_NAME = PLUGIN_ID + ".modules";
 
+const gutil = require('gulp-util');
+
 const MODULES = [
     "LOCATION",
     "BLUETOOTH",
@@ -141,6 +143,7 @@ var main = function() {
         fs = require('fs');
         path = require('path');
         cwd = path.resolve();
+        gutil.log('cwd: ' + cwd);
         pluginNodePath = cwd;
 
         modulesPath = path.resolve(pluginNodePath, "..");
@@ -148,7 +151,7 @@ var main = function() {
         pluginScriptsPath = path.resolve(pluginNodePath, "scripts");
 
         logger = require(path.resolve(pluginScriptsPath, "logger.js"))(modulesPath, PLUGIN_ID);
-        et = require(path.resolve(modulesPath, "elementtree"));
+        et = require("elementtree");
     }catch(e){
         handleError("Failed to load dependencies. If using cordova@6 CLI, ensure this plugin is installed with the --fetch option or run 'npm install "+PLUGIN_ID+"': " + e.message);
     }
