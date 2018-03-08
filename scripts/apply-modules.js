@@ -8,8 +8,6 @@ const PLUGIN_NAME = "Diagnostic plugin";
 const PLUGIN_ID = "cordova.plugins.diagnostic";
 const PREFERENCE_NAME = PLUGIN_ID + ".modules";
 
-const gutil = require('gulp-util');
-
 const MODULES = [
     "LOCATION",
     "BLUETOOTH",
@@ -143,7 +141,7 @@ var main = function() {
         fs = require('fs');
         path = require('path');
         cwd = path.resolve();
-        gutil.log('cwd: ' + cwd);
+        console.log('cwd: ' + cwd);
         pluginNodePath = cwd;
 
         modulesPath = path.resolve(pluginNodePath, "..");
